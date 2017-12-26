@@ -1,9 +1,0 @@
-package com.example.demo;
-
-import org.springframework.kafka.core.KafkaTemplate;
-
-public class Sender {
-	
-	private KafkaTemplate<String, String> kafkaTemplate;
-
-}

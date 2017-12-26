@@ -1,7 +1,0 @@
-jmx.app.name=api
-http.server.port=8083
-server.port=8446
-server.contextPath=/
-server.ssl.key-store = classpath:blc-example.keystore
-server.ssl.key-store-password = broadleaf
-server.ssl.key-password = broadleaf
