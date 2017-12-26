@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://schema.broadleafcommerce.org/co"
+            targetNamespace="http://schema.broadleafcommerce.org/co"
+            elementFormDefault="qualified" attributeFormDefault="unqualified"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:element name="orderId" type="xsd:string"/>
+     <xsd:element name="subTotal" type="xsd:double"></xsd:element>
+    <xsd:element name="totalTax" type="xsd:double"></xsd:element>
+    <xsd:element name="totalFulfillmentCharges" type="xsd:double"></xsd:element>
+    <xsd:element name="status" type="xsd:string"></xsd:element>
+    <xsd:element name="submitDate" type="xsd:date"></xsd:element>
+    
+    <xsd:element name="customer">	
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element name="firstName" type="xsd:string" />
+    			<xsd:element name="lastName" type="xsd:string" />
+    			<xsd:element name="emailID" type="xsd:string" />
+    			<xsd:element name="mobileNumber" type="xsd:positiveInteger" />    			
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="fulfillmentGroup">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element name="doorNum" type="xsd:string"/>
+    			<xsd:element name="street" type="xsd:string"/>
+    			<xsd:element name="locality" type="xsd:string" minOccurs="0"/>
+    			<xsd:element name="city" type="xsd:string" minOccurs="0"/>
+    			<xsd:element name="state" type="xsd:string" minOccurs="0"/>
+    			<xsd:element name="country" type="xsd:string" minOccurs="0"/>
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="item">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element name="productCode" type="xsd:string" />
+    			<xsd:element name="productName" type="xsd:string" />
+    			<xsd:element name="qty" type="xsd:positiveInteger" />
+    			<xsd:element name="productImage" type="xsd:string" />
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="createOrder" >
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element name="orderItems" type="item" maxOccurs="unbounded" />
+    			<xsd:element name="fulfillmentGroups" type="fulfillmentGroup" maxOccurs="unbounded" />
+    			<xsd:element name="orderItems" type="customer" maxOccurs="unbounded" />
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+   
+
+</xsd:schema>

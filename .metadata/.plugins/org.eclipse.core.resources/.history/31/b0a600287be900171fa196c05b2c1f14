@@ -1,0 +1,59 @@
+package com.community.admin;
+
+import javax.sql.DataSource;
+
+import org.broadleafcommerce.common.config.EnableBroadleafAdminAutoConfiguration;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+
+@SpringBootApplication
+@EnableAutoConfiguration
+public class AdminApplication {
+
+    @Configuration
+    @EnableBroadleafAdminAutoConfiguration
+    public static class BroadleafFrameworkConfiguration {
+    	
+    	
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(AdminApplication.class, args);
+    }
+    
+    /*******************************
+     *     Primary Datasource      *
+    * *****************************/
+    @Bean
+    @Primary
+    @ConfigurationProperties(prefix="spring.webDS")
+    public DataSource primaryDataSource() {
+        return DataSourceBuilder.create().build();
+    }
+
+    /*******************************
+    *     Second Datasource      *
+   * *****************************/
+   @Bean
+   @ConfigurationProperties(prefix="spring.webSecure")
+   public DataSource secondaryDataSource() {
+      return DataSourceBuilder.create().build();
+   }
+ 
+   /*******************************
+    *     Third Datasource      *
+   * *****************************/
+   @Bean
+   @ConfigurationProperties(prefix="spring.webStorageDS")
+   public DataSource thirdDataSource() {
+      return DataSourceBuilder.create().build();
+   }
+   
+}
+

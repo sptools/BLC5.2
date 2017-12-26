@@ -1,0 +1,6 @@
+1514181977887	Delete resource 'asdf'
+1514182428274	Delete resource 'boot-community-demo-oms'
+1514194422976	Delete resource 'boot-community-demo-kafka'
+1514194572414	Rename resource 'demo'
+1514194635244	Delete resource 'boot-community-demo-kafka'
+1514199138718	Delete resource 'boot-community-demo-kafka/src/main/resources/application.yml'
